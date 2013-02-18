@@ -1,0 +1,30 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="D:\AAC_DECODER_ROBUST_ver4\AAC_Decoder_100\A_AAC_D_HE_C64X+_100\100_A_AAC_D_HE_c64x+_1_00\Client\Build\"
+ProjectType=Executable
+CPUFamily=TMS320C64XX
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Tool="Linker"
+Config="Debug"
+
+[Source Files]
+Source="..\..\Client\Test\Src\alg_create.c"
+Source="..\..\Client\Test\Src\alg_malloc.c"
+Source="..\..\Client\Test\Src\TestAppDecoder.c"
+Source="AACADecApp_LC_ELF.cmd"
+
+["Compiler" Settings: "Debug"]
+Options=-q -fr".\Obj" -i"..\..\Client\Test\Inc" -i"..\..\Inc" -mv6400+ --mem_model:data=far 
+
+["DspBiosBuilder" Settings: "Debug"]
+Options=-v6x
+
+["Linker" Settings: "Debug"]
+Options=-q -c -m".\Map\TestAppDecoder_lc_elf.map" -o".\Out\TestAppDecoder_lc_elf.out" -w -x -i"..\..\..\Lib" -l"aacdec_tii_lc_elf.l64P" 
+
+["AACADecApp.cmd" Settings: "Debug"]
+LinkOrder=1
+
